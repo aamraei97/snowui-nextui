@@ -1,13 +1,37 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
+import localFont from 'next/font/local'
 
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/src/config/site";
-import { fontSans } from "@/src/config/fonts";
-import { Navbar } from "@/src/components/navbar";
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+
+const iransans = localFont({
+  src: [
+    {
+      path: "../assets/fonts/iransans/IRANSansWeb(FaNum)_UltraLight.ttf",
+      weight: "200",
+    },
+    {
+      path: "../assets/fonts/iransans/IRANSansWeb(FaNum)_Light.ttf",
+      weight: "300",
+    },
+    {
+      path: "../assets/fonts/iransans/IRANSansWeb(FaNum).ttf",
+      weight: "400",
+    },
+    {
+      path: "../assets/fonts/iransans/IRANSansWeb(FaNum)_Medium.ttf",
+      weight: "700",
+    },
+    {
+      path: "../assets/fonts/iransans/IRANSansWeb(FaNum)_Bold.ttf",
+      weight: "700",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -27,39 +51,12 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning dir="rtl" lang="fa">
       <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                title="nextui.org homepage"
-              >
-                <span className="text-default-600">Powered by</span>
-                <p className="text-primary">NextUI</p>
-              </Link>
-            </footer>
-          </div>
-        </Providers>
+      <body className={clsx(`min-h-screen   antialiased ${iransans.className}`, fontSans.variable)}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>{children}</Providers>
       </body>
     </html>
   );

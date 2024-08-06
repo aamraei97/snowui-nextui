@@ -3,7 +3,7 @@ import clsx from "clsx"
 import { LinksType, links } from "./links"
 
 
-export function ASideNavMenu() {
+export function SideNavMenu() {
 	return (
 		<nav className="grid px-4 mt-20">
 			<ul className="grid gap-2">
@@ -11,9 +11,8 @@ export function ASideNavMenu() {
 					links.map(link => (
 						<li className="grid" key={link.key}>
 							<div className="group max-h-9 has-[input.original-input:checked]:max-h-screen transition-all duration-500 overflow-hidden">
-								{/* {JSON.stringify(link)} */}
-								<ASideNavMenuLinkLabel link={link} id={link.key} />
-								<ASideNavMenuLinkLabel link={link} id={link.key + 'dummy'} isDummy />
+								<SideNavMenuLinkLabel link={link} id={link.key} />
+								<SideNavMenuLinkLabel link={link} id={link.key + 'dummy'} isDummy />
 								{
 									link.children && (
 										<ul className="grid pr-10">
@@ -43,7 +42,7 @@ interface ASideNavMenuLinkLabelProps {
 	id: string
 	isDummy?: boolean
 }
-function ASideNavMenuLinkLabel(props: ASideNavMenuLinkLabelProps) {
+function SideNavMenuLinkLabel(props: ASideNavMenuLinkLabelProps) {
 	// Props 
 	const { link, id, isDummy = false } = props
 

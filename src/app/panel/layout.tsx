@@ -1,4 +1,4 @@
-import { ASidenav } from "@/components/layout/a-sidenav"
+import { Sidenav } from "@/components/layout/sidenav"
 
 interface PanelLayoutProps {
 	children: React.ReactNode
@@ -10,7 +10,7 @@ export default function PanelLayout(props: PanelLayoutProps) {
 
 	return (
 		<div className="pr-60 grid" style={{ direction: "rtl" }}>
-			<ASidenav />
+			<Sidenav />
 			<div className="border-b border-b-black-main/10 h-[68px]">
 				sdsd
 			</div>

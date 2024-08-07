@@ -1,11 +1,5 @@
-"use client"
-import {
-	Dropdown,
-	DropdownTrigger,
-	DropdownMenu,
-	DropdownSection,
-	DropdownItem
-} from "@nextui-org/dropdown";
+"use client";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@nextui-org/dropdown";
 // Types
 import { ProjectType } from "@/types";
 
@@ -13,15 +7,15 @@ import { ProjectType } from "@/types";
 import { ATableCell, ATableRow } from "@/components/ui/a-table";
 
 // Assets
-import MoreIcon from "@/components/icons/more"
+import MoreIcon from "@/components/icons/more";
 import { Button } from "@nextui-org/button";
 
 interface ProjectsItemProps {
-	project: ProjectType
+	project: ProjectType;
 }
 export function ProjectsItem(props: ProjectsItemProps) {
 	// Props
-	const { project } = props
+	const { project } = props;
 
 	return (
 		<ATableRow>
@@ -29,12 +23,14 @@ export function ProjectsItem(props: ProjectsItemProps) {
 			<ATableCell>{project.email}</ATableCell>
 			<ATableCell>{project.registerDate}</ATableCell>
 			<ATableCell>
-				<Dropdown>
+				<Dropdown
+					classNames={{
+						content: "shadow-none border border-black-main/[.10] rounded-2xl",
+					}}
+				>
 					<DropdownTrigger>
-						<Button
-							variant="light" isIconOnly size="sm"
-						>
-							<MoreIcon />
+						<Button variant="light" isIconOnly size="sm">
+							<MoreIcon width="18px" height="18px" />
 						</Button>
 					</DropdownTrigger>
 					<DropdownMenu aria-label="Static Actions">
@@ -46,8 +42,7 @@ export function ProjectsItem(props: ProjectsItemProps) {
 						</DropdownItem>
 					</DropdownMenu>
 				</Dropdown>
-
 			</ATableCell>
 		</ATableRow>
-	)
+	);
 }

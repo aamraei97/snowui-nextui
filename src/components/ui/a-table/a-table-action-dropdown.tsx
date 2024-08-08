@@ -14,7 +14,7 @@ export function ATableActionDropdown(props: ATableActionDropdownProps) {
 		<div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-has-[&_button[aria-expanded='true']]:opacity-100">
 			<Dropdown
 				classNames={{
-					content: "shadow-none border border-black-main/[.10] rounded-2xl",
+					content: "shadow-none border border-black/[.10] rounded-2xl",
 				}}
 			>
 				<DropdownTrigger>

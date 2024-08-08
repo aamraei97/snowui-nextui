@@ -1,3 +1,5 @@
+import clsx from "clsx"
+
 interface ATableProps<T> {
 	columns: {
 		title: string
@@ -16,7 +18,7 @@ export function ATable<T>(props: ATableProps<T>) {
 				<thead className="border-b border-b-black-main/20">
 					<tr>
 						{columns.map((column, index) => (
-							<th key={`column-${index}`} className="h-10 text-xs text-right px-3 text-black-main/40 font-normal">{column.title}</th>
+							<th key={`column-${index}`} className="h-10 text-sm text-right px-3 text-black/40 font-normal">{column.title}</th>
 						))}
 						{withOperations && <th></th>}
 					</tr>
@@ -24,6 +26,12 @@ export function ATable<T>(props: ATableProps<T>) {
 				</thead>
 				<tbody>
 					{rows.map((row, index) => renderRow(row, index))}
+					{rows.length === 0 && (
+						<ATableRow isEmptyRow>
+							<td colSpan={999} className="h-10 text-black/40 text-sm px-3">نتیجه‌ای یافت نشد.</td>
+						</ATableRow>
+					)}
+				
 				</tbody>
 			</table>
 		</div>
@@ -31,13 +39,15 @@ export function ATable<T>(props: ATableProps<T>) {
 }
 interface ATableRowProps {
 	children: React.ReactNode
+	isEmptyRow?:boolean
 }
 export function ATableRow(props: ATableRowProps) {
 	// Props
-	const { children } = props
+	const { children, isEmptyRow=false } = props
 
+	const sharedClasses = "group  [&:not(:first-child)]:border-t last:border-b border-t-black-main/5"
 	return (
-		<tr className="group [&:hover+tr]:border-t-white [&:not(:first-child)]:border-t border-t-black-main/5 hover:border-t-white">
+		<tr className={clsx(sharedClasses, {'[&:hover+tr]:border-t-white hover:border-y-white': !isEmptyRow})}>
 			{children}
 		</tr>
 	)

@@ -23,10 +23,10 @@ export function ProjectsItem(props: ProjectsItemProps) {
 			<ATableCell>{project.registerDate}</ATableCell>
 			<ATableCell>
 				<ATableActionDropdown>
-					<DropdownItem key="new">New file</DropdownItem>
-					<DropdownItem key="edit">Edit file</DropdownItem>
+					<DropdownItem key="new">ایجاد فایل</DropdownItem>
+					<DropdownItem key="edit">ویرایش فایل</DropdownItem>
 					<DropdownItem key="delete" className="text-danger" color="danger">
-						Delete file
+						حذف فایل
 					</DropdownItem>
 				</ATableActionDropdown>
 			</ATableCell>

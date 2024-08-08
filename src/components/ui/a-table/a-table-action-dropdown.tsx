@@ -11,14 +11,15 @@ export function ATableActionDropdown(props: ATableActionDropdownProps) {
 	const { children } = props;
 
 	return (
-		<div className="opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-has-[&_button[aria-expanded='true']]:opacity-100">
+		<div className="mr-auto flex justify-end opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-has-[&_button[aria-expanded='true']]:opacity-100">
 			<Dropdown
 				classNames={{
-					content: "shadow-none border border-black/[.10] rounded-2xl",
+					content: "shadow-none border border-black/[.10] rounded-2xl min-w-40",
 				}}
+				placement="bottom-start"
 			>
 				<DropdownTrigger>
-					<Button variant="light" isIconOnly size="sm">
+					<Button variant="flat" isIconOnly size="sm">
 						<MoreIcon width="18px" height="18px" />
 					</Button>
 				</DropdownTrigger>

@@ -1,11 +1,5 @@
-"use client"
-import {
-	Dropdown,
-	DropdownTrigger,
-	DropdownMenu,
-	DropdownSection,
-	DropdownItem
-} from "@nextui-org/dropdown";
+"use client";
+import { DropdownItem } from "@nextui-org/dropdown";
 // Types
 import { ProjectType } from "@/types";
 
@@ -13,8 +7,7 @@ import { ProjectType } from "@/types";
 import { ATableCell, ATableRow } from "@/components/ui/a-table";
 
 // Assets
-import MoreIcon from "@/components/icons/more"
-import { Button } from "@nextui-org/button";
+import { ATableActionDropdown } from "@/components/ui/a-table/a-table-action-dropdown";
 
 interface ProjectsItemProps {
 	project: ProjectType
@@ -29,24 +22,13 @@ export function ProjectsItem(props: ProjectsItemProps) {
 			<ATableCell>{project.email}</ATableCell>
 			<ATableCell>{project.registerDate}</ATableCell>
 			<ATableCell>
-				<Dropdown>
-					<DropdownTrigger>
-						<Button
-							variant="light" isIconOnly size="sm"
-						>
-							<MoreIcon />
-						</Button>
-					</DropdownTrigger>
-					<DropdownMenu aria-label="Static Actions">
-						<DropdownItem key="new">New file</DropdownItem>
-						<DropdownItem key="copy">Copy link</DropdownItem>
-						<DropdownItem key="edit">Edit file</DropdownItem>
-						<DropdownItem key="delete" className="text-danger" color="danger">
-							Delete file
-						</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>
-
+				<ATableActionDropdown>
+					<DropdownItem key="new">New file</DropdownItem>
+					<DropdownItem key="edit">Edit file</DropdownItem>
+					<DropdownItem key="delete" className="text-danger" color="danger">
+						Delete file
+					</DropdownItem>
+				</ATableActionDropdown>
 			</ATableCell>
 		</ATableRow>
 	)

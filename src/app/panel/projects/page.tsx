@@ -5,22 +5,16 @@ import { ProjectType } from "@/types";
 import { ATable } from "@/components/ui/a-table";
 import { ProjectsItem } from "@/features/projects/projects-item";
 
-const tableColumns = [
-	{ title: 'کاربر' },
-	{ title: 'ایمیل' },
-	{ title: 'تاریخ ثبت‌نام' },
-]
+const tableColumns = [{ title: "کاربر" }, { title: "ایمیل" }, { title: "تاریخ ثبت‌نام" }];
 const users: ProjectType[] = [
 	{ name: "آمان", email: "aa@gmail.com", registerDate: "1403-08-09" },
 	{ name: "آمان", email: "aa@gmail.com", registerDate: "1403-08-09" },
-	{ name: "آمان", email: "aa@gmail.com", registerDate: "1403-08-09" }
-]
+	{ name: "آمان", email: "aa@gmail.com", registerDate: "1403-08-09" },
+];
 export default function ProjectsPage() {
 	return (
 		<div className="grid gap-3">
-			<div className="bg-[#F7F9FB] rounded-lg h-[44px] p-2">
-				sd
-			</div>
+			<div className="h-[44px] w-20 rounded-lg bg-[#F7F9FB] p-2">sd</div>
 			<ATable
 				columns={tableColumns}
 				rows={users}
@@ -28,5 +22,5 @@ export default function ProjectsPage() {
 				withOperations
 			/>
 		</div>
-	)
+	);
 }

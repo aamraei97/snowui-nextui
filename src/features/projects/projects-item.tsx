@@ -10,11 +10,11 @@ import { ATableCell, ATableRow } from "@/components/ui/a-table";
 import { ATableActionDropdown } from "@/components/ui/a-table/a-table-action-dropdown";
 
 interface ProjectsItemProps {
-	project: ProjectType
+	project: ProjectType;
 }
 export function ProjectsItem(props: ProjectsItemProps) {
 	// Props
-	const { project } = props
+	const { project } = props;
 
 	return (
 		<ATableRow>
@@ -31,5 +31,5 @@ export function ProjectsItem(props: ProjectsItemProps) {
 				</ATableActionDropdown>
 			</ATableCell>
 		</ATableRow>
-	)
+	);
 }
